@@ -30,6 +30,6 @@ rm $temphosts1 $temphosts2 temp1 temp2
 echo "127.0.0.1 $HOSTNAME
 ::1 $HOSTNAME" | cat - /etc/hosts > temp && mv temp /etc/hosts
  
-sh ./ignore.sh
+sudo ./ignore.sh
  
 echo "# Last updated on $(date)" | cat - /etc/hosts > temp && mv temp /etc/hosts
