@@ -30,7 +30,6 @@ rm $temphosts1 $temphosts2 temp1 temp2
 echo "127.0.0.1 $HOSTNAME
 ::1 $HOSTNAME" | cat - /etc/hosts > temp && mv temp /etc/hosts
  
-sed -i 's/gs1.wac.edgecastcdn.net/#gs1.wac.edgecastcdn.net/g' /etc/hosts
-sed -i 's/a.facdn.net/#a.facdn.net/g' /etc/hosts
+sh ./ignore.sh
  
 echo "# Last updated on $(date)" | cat - /etc/hosts > temp && mv temp /etc/hosts
