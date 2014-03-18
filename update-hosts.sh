@@ -1,10 +1,10 @@
 #!/bin/bash
- 
+
 rootcheck() {
-if [ "$UID" -ne 0 ]
-then echo "This script must be run as root"
-exit
-fi
+  if [[ $UID -ne 0 ]]; then
+    echo "Please run this script as root"
+    exit 1
+  fi
 }
 rootcheck
  
