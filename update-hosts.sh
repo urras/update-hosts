@@ -18,6 +18,9 @@ sed -e 's/\r//' -e '/^127.0.0.1/!d' -e '/localhost/d' -e 's/127.0.0.1/::1/' -e '
 cat temp1 temp2 >> ../hosts/hosts
 rm $temphosts1 $temphosts2 temp1 temp2
 
+sed -i '/127.0.0.1 localhost/d' ../hosts/hosts
+sed -i '/::1 localhost/d' ../hosts/hosts
+
 echo "127.0.0.1 localhost
 ::1 localhost" | cat - ../hosts/hosts >> ./temp && mv ./temp ../hosts/hosts
 
@@ -26,3 +29,4 @@ sh ./ignore.sh
 sed -i '/# Last updated on /d' ../hosts/hosts
 
 echo "# Last updated on $(date)" | cat - ../hosts/hosts >> ./temp && mv ./temp ../hosts/hosts
+
