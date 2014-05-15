@@ -23,4 +23,6 @@ echo "127.0.0.1 localhost
 
 sh ./ignore.sh
 
+sed -i '/# Last updated on /d' ../hosts/hosts
+
 echo "# Last updated on $(date)" | cat - ../hosts/hosts >> ./temp && mv ./temp ../hosts/hosts
