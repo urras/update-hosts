@@ -27,6 +27,9 @@ sed -e 's/\r//' -e '/^127.0.0.1/!d' -e '/localhost/d' -e 's/127.0.0.1/::1/' -e '
 cat temp1 temp2 >> /etc/hosts
 rm $temphosts1 $temphosts2 temp1 temp2
 
+sed -i '/127.0.0.1 localhost/d' /etc/hosts
+sed -i '/::1 localhost/d' /etc/hosts
+
 echo "127.0.0.1 $HOSTNAME
 ::1 $HOSTNAME" | cat - /etc/hosts >> temp && mv temp /etc/hosts
 
