@@ -32,4 +32,6 @@ echo "127.0.0.1 $HOSTNAME
 
 sudo ./ignore.sh
 
+sed -i '/# Last updated on /d' /etc/hosts
+
 echo "# Last updated on $(date)" | cat - /etc/hosts >> temp && mv temp /etc/hosts
