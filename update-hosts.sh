@@ -1,4 +1,6 @@
 #!/bin/bash
+rm  /home/stupiddog/www/hosts/hosts
+rm  /home/stupiddog/www/winhosts/hosts/hosts
 
 temphosts1=$(mktemp)
 temphosts2=$(mktemp)
@@ -13,7 +15,7 @@ wget -nv -O - "http://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&sho
 # This part gets pretty nasty :/
 cp $temphosts1 $temphosts2
 
-sed -e 's/\r//' -e '/^127.0.0.1/!d' -e '/localhost/d' -e 's/127.0.0.1/0.0.0.0/' -e 's/ \+/\t/' -e 's/#.*$//' -e 's/[ \t]*$//' < $temphosts1 | sort -u > temp1
+sed -e 's/\r//' -e '/^127.0.0.1/!d' -e '/localhost/d' -e 's/0.0.0.0/127.0.0.1/' -e 's/ \+/\t/' -e 's/#.*$//' -e 's/[ \t]*$//' < $temphosts1 | sort -u > temp1
 sed -e 's/\r//' -e '/^127.0.0.1/!d' -e '/localhost/d' -e 's/127.0.0.1/::1/' -e 's/ \+/\t/' -e 's/#.*$//' -e 's/[ \t]*$//' < $temphosts2 | sort -u > temp2
 cat temp1 temp2 >> ../hosts/hosts
 rm $temphosts1 $temphosts2 temp1 temp2
@@ -29,4 +31,10 @@ sh ./ignore.sh
 sed -i '/# Last updated on /d' ../hosts/hosts
 
 echo "# Last updated on $(date)" | cat - ../hosts/hosts >> ./temp && mv ./temp ../hosts/hosts
+
+cd ..
+cp -r ./hosts ./winhosts
+/home/$USER/bin/unix2dos ./winhosts/hosts/hosts
+zip -r ./winhosts.zip ./winhosts
+
 
