@@ -1,6 +1,7 @@
 #!/bin/bash
 rm  /home/stupiddog/www/hosts/hosts
 rm  /home/stupiddog/www/winhosts/hosts/hosts
+rm  /home/stupiddog/www/winhosts.zip
 
 temphosts1=$(mktemp)
 temphosts2=$(mktemp)
