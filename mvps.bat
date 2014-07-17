@@ -26,11 +26,11 @@ IF EXIST %windir%\SYSTEM32\DRIVERS\ETC\HOSTS REN %windir%\SYSTEM32\DRIVERS\ETC\H
 IF EXIST %windir%\SYSTEM32\DRIVERS\ETC\NUL COPY /Y HOSTS %windir%\SYSTEM32\DRIVERS\ETC>NUL
 	color 1F
 	echo.
-	echo  ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
-	echo  Ý                                          ÚÄÄÄ¿Þ
-	echo  Ý THE MVPS HOSTS FILE IS NOW UPDATED       ³ û ³Þ
-	echo  Ý                                          ÀÄÄÄÙÞ
-	echo. ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß
+	echo  +++++++++++++++++++++++++++++++++++++++++++++++++
+	echo  +                                          ++++++
+	echo  + THE MVPS HOSTS FILE IS NOW UPDATED       ++++++
+	echo  +                                          ++++++
+	echo. +++++++++++++++++++++++++++++++++++++++++++++++++
 	echo.
 	echo.
 	echo. Previous version saved and renamed to HOSTS.MVP
